@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REM Renovations and Repairs</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3659/3659784.png" type="image/png">
+  <style>
+    :root {
+      --primary: #0077b6; /* blue */
+      --dark: #1a1a1a;    /* very dark grey */
+      --light: #f5f7fa;
+      --font: "Poppins", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); color: var(--dark); background-color: var(--light); }
+
+    /* NAVIGATION */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2rem; background-color: var(--dark); color: white;
+      position: sticky; top: 0; z-index: 1000;
+    }
+    .logo { font-weight: 600; letter-spacing: 1px; font-size: 1.2rem; }
+    .nav-links { list-style: none; display: flex; gap: 1.5rem; }
+    .nav-links li a { color: white; text-decoration: none; transition: 0.3s; }
+    .nav-links li a:hover, .nav-links li a.active { color: var(--primary); }
+
+    .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
+    .bar { height: 3px; width: 25px; background-color: white; margin: 4px 0; transition: 0.3s; }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80')
+                  center/cover no-repeat;
+      color: white; text-align: center; padding: 7rem 1rem;
+    }
+    header h1 { font-size: 3rem; letter-spacing: 2px; font-weight: 600; margin-bottom: 1rem; }
+    header p { font-size: 1.2rem; color: #e0e0e0; }
+
+    .cta-button {
+      background-color: var(--primary); color: white; padding: 0.9rem 1.8rem;
+      border-radius: 4px; text-decoration: none; transition: 0.3s;
+      display: inline-block; margin-top: 2rem;
+    }
+    .cta-button:hover { background-color: #005f8c; }
+
+    /* MISSION */
+    section { max-width: 1000px; margin: 3rem auto; padding: 0 1.5rem; }
+    h2 { font-size: 2rem; margin-bottom: 1rem; position: relative; }
+    h2::after { content: ""; position: absolute; bottom: -6px; left: 0; width: 60px; height: 3px; background-color: var(--primary); }
+    p { margin-bottom: 1rem; }
+
+    /* SERVICES */
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .service { background: white; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 1.5rem; text-align: center; }
+    .service img { width: 100%; border-radius: 8px; height: 220px; object-fit: cover; margin-bottom: 1rem; }
+    .service h3 { color: var(--primary); margin-bottom: 0.5rem; }
+
+    /* CONTACT */
+    form {
+      background: white; border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      padding: 2rem; margin-top: 1.5rem;
+    }
+    label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+    input, textarea {
+      width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px;
+      font-size: 1rem; margin-bottom: 1rem;
+    }
+    button {
+      background-color: var(--primary); color: white; border: none;
+      padding: 0.9rem 2rem; border-radius: 4px; cursor: pointer;
+      transition: 0.3s; font-size: 1rem;
+    }
+    button:hover { background-color: #005f8c; }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--dark); color: white; text-align: center;
+      padding: 2rem 1rem; margin-top: 3rem;
+    }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .menu-toggle { display: flex; }
+      .nav-links {
+        position: absolute; top: 60px; left: -100%; width: 100%;
+        background-color: var(--dark); flex-direction: column; text-align: center;
+        transition: left 0.3s ease;
+      }
+      .nav-links.active { left: 0; }
+      .nav-links li { margin: 1rem 0; }
+      .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+      .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">REM Renovations & Repairs</div>
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home">
+    <h1>REM Renovations and Repairs</h1>
+    <p>Elegant Designs • Quality Craftsmanship • Reliable Service</p>
+    <a href="#contact" class="cta-button">Request a Quote</a>
+  </header>
+
+  <section id="mission">
+    <h2>Our Mission</h2>
+    <p>At <strong>REM Renovations and Repairs</strong>, our mission is to bring beauty, functionality, and integrity to every project. We believe in honest work, fine craftsmanship, and long-lasting relationships built on trust. Whether you’re remodeling your home or making essential repairs, we’re here to make your vision a reality.</p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1600585154608-3e9d44d31f94?auto=format&fit=crop&w=900&q=80" alt="Outdoor Deck Renovation">
+        <h3>Outdoor Decks & Additions</h3>
+        <p>We design and build beautiful, durable outdoor decks and additions that expand your living space with style and comfort.</p>
+      </div>
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=900&q=80" alt="Modern Elegant Bathroom">
+        <h3>Bathroom Remodeling</h3>
+        <p>Our bathroom renovations combine elegance and functionality, transforming your space into a relaxing personal retreat.</p>
+      </div>
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1600585154084-95d6c944a06c?auto=format&fit=crop&w=900&q=80" alt="Luxury Modern Kitchen">
+        <h3>Kitchen Renovations</h3>
+        <p>From cabinetry and countertops to lighting and flooring, our kitchen remodeling services elevate your home’s heart.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Ready to start your next project? Fill out the form below or email us directly at <a href="mailto:remrenovationsandrepairs@gmail.com">remrenovationsandrepairs@gmail.com</a>.</p>
+
+    <form action="https://formsubmit.co/remrenovationsandrepairs@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Project Inquiry from REM Website">
+      <input type="hidden" name="_captcha" value="false">
+      
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+
+      <label for="message">Description of Work Needed</label>
+      <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 REM Renovations and Repairs • All Rights Reserved</p>
+    <p>Email: <a href="mailto:remrenovationsandrepairs@gmail.com">remrenovationsandrepairs@gmail.com</a></p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    menu.addEventListener('click', () => {
+      menu.classList.toggle('is-active');
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
+
