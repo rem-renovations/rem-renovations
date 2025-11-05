@@ -256,5 +256,94 @@ footer a:hover {
   nav ul {
     flex-direction: column;
     gap: 1rem;
+
+    /* --- Updated Navigation (with hamburger menu) --- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--dark);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav .logo {
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: var(--primary);
+}
+
+/* Hamburger icon (hidden on desktop) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  height: 3px;
+  width: 25px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+/* --- Mobile Nav Behavior --- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: -100%;
+    width: 100%;
+    background-color: var(--dark);
+    flex-direction: column;
+    text-align: center;
+    transition: left 0.3s ease;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+  }
+
+  /* Animate menu icon when open */
+  .menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
 }
